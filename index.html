@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Kavibharathi S - Portfolio</title>
+<style>
+  body{font-family:Inter,Arial,sans-serif;margin:0;background:#0f1720;color:#e6eef6}
+  nav{background:#0b76ef;display:flex;gap:20px;padding:14px 24px;font-weight:600}
+  nav a{color:#fff;text-decoration:none}
+  nav a.active{text-decoration:underline}
+  .wrap{max-width:1000px;margin:auto;padding:28px}
+  .card{background:rgba(255,255,255,0.05);border-radius:12px;padding:20px;margin-bottom:20px}
+  .avatar{width:120px;height:120px;border-radius:12px;background:#7cc0ff;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:bold;margin-bottom:12px;cursor:pointer}
+  h1{margin:0;font-size:28px}
+  h2{margin:0;font-size:18px;color:#7cc0ff}
+  .bio{margin-top:8px;color:#9aa7b2}
+  .section-title{font-weight:700;margin-bottom:10px;color:#0b76ef}
+  .projects img{width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin:6px 0}
+  .skills span{background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:999px;margin:4px;display:inline-block}
+  .meta{color:#9aa7b2;font-size:13px}
+  footer{text-align:center;margin-top:20px;font-size:13px;color:#9aa7b2}
+  .editable{outline:none}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#home" class="navlink active">Home</a>
+  <a href="#projects" class="navlink">Projects</a>
+  <a href="#achievements" class="navlink">Achievements</a>
+  <a href="#contact" class="navlink">Contact</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- Home -->
+  <section id="home" class="page card">
+    <div class="avatar" id="photo">
+      <img src="myphoto.jpeg" alt="Profile Photo" style="width:100%;height:100%;border-radius:12px;object-fit:cover;">
+    </div>
+
+    <div><h1>Kavibharathi S</h1></div>
+    <br>
+    <div><h2>Aspiring AI & ML Engineer</h2></div>
+    
+    <div class="bio">
+      Focused on Data Structures, Data Analytics, and IoT, complemented by practical experience in AI & ML. 
+      Dedicated to developing efficient and impactful solutions.
+    </div>
+    <br>
+
+    <div class="section-title">Skills</div>
+    
+    <div class="skills" contenteditable="true">
+      <span>Python</span><span>Java</span><span>C++</span><span>React.js</span>
+      <span>SQL</span><span>Machine Learning</span><span>IoT</span><span>Spring Boot</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="page card" style="display:none">
+    <h1><div class="section-title" style="text-align:center;">Projects</div></h1>
+
+    <div style="text-align:center;">
+      <strong>Wearable Navigation Aid with Emergency Alerts</strong>
+      <div class="meta">Arduino, Ultrasonic Sensors, GSM Module</div>
+      <p>Developed a wearable assistive device for visually impaired users that provides real-time obstacle detection and navigation support. 
+         Integrated ultrasonic sensors for distance measurement, vibration motors for haptic feedback, and a GSM module to trigger SOS alerts in emergencies, 
+         enhancing safety and independence for the users.</p>
+      <img src="Wearable_Navigation.jpeg" alt="Wearable Aid" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+      <br><br><br>
+    </div>
+    <div style="text-align:center;">
+  <strong>Human Detection System using YOLOv8n</strong>
+  <div class="meta">Python, OpenCV, IoT, Streamlit</div>
+  <p>Developed a smart surveillance system capable of detecting human presence and unusual movements in real time. 
+     Integrated IoT for remote monitoring and used Streamlit to build an interactive web interface for live video streaming and alerts. 
+     The system supports motion detection, human identification, and automated notifications, enhancing security and user accessibility.</p>
+  <img src="AI_project.jpeg" alt="Smart Home Surveillance" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+  <br><br><br>
+</div>
+
+
+    <div style="text-align:center;">
+      <strong>Road Detection Using YOLO</strong>
+      <div class="meta">Python, OpenCV, YOLOv8</div>
+      <p>Developed a real-time road and lane boundary detection system using the YOLOv8 model. 
+         The project was optimized for autonomous navigation, enabling accurate segmentation of road surfaces 
+         and improving safety in self-driving and mapping applications.</p>
+      <img src="Road_Detection.jpeg" alt="Road Detection" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+      <br><br><br>
+    </div>
+
+    <div style="text-align:center;">
+      <strong>Gesture-Controlled Virtual Mouse</strong>
+      <div class="meta">Python, OpenCV, MediaPipe</div>
+      <p>Designed and implemented a virtual mouse system using Python, OpenCV, and MediaPipe that replaces traditional hardware with hand gesture recognition. 
+         Enabled users to perform cursor movements, clicks, and scrolling in real-time, providing an accessible solution for individuals with mobility challenges.</p>
+      <img src="VirtualMouse.jpg" alt="Virtual Mouse" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+      <br><br><br>
+    </div>
+
+    <div style="text-align:center;">
+      <strong>Speech to ISL Translator</strong>
+      <div class="meta">Python, NLP, Google Speech Recognition, Google Translate API</div>
+      <p>Developed an AI-powered translator that converts spoken language into Indian Sign Language (ISL) gestures, 
+         improving communication accessibility for hearing-impaired individuals. 
+         Integrated natural language processing and speech recognition to achieve accurate real-time translation.</p>
+      <img src="ISL.jpeg" alt="ISL Translator" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+      <br><br><br>
+    </div>
+
+    
+
+    <div style="text-align:center;">
+      <strong>Fast Line Follower Bot</strong>
+      <div class="meta">Arduino Nano, IR Sensors, Embedded C</div>
+      <p>Designed and built an autonomous line follower robot capable of high-speed navigation using IR sensors for real-time path detection. 
+         Programmed with Embedded C on Arduino Nano, the bot ensures precise tracking, quick response to path variations, 
+         and serves as a foundation for robotics and automation applications.</p>
+      <img src="Line_Follower.jpeg" alt="Line Follower" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
+      <br><br><br>
+    </div>
+  </section>
+
+
+  <!-- Achievements -->
+<section id="achievements" class="page card" style="display:none">
+  <h1><div class="section-title" style="text-align:center;">Achievements</div></h1>
+
+  <div style="text-align:center;">
+    <ul style="list-style-type:none; padding:0; font-size:16px; line-height:2;">
+      <li>
+        <img src="Expo.jpeg" alt="Project Expo" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+        🏆 1st Place — Project Expo (Engineering Day at SKCT Coimbatore)
+        <BR><BR>
+      </li>
+      <li>
+        <img src="Bag_IT.jpeg" alt="Hackathon" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+        💡 Finalist — Bag-It Challenge Hackathon(TNPCB Chennai)
+        <BR><BR>
+      </li>
+      <li>
+  <img src="mcet.jpeg" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+  🚀 Shortlisted and Finalist — EXPO conducted by Agastya International Foundation.
+  <br><br>
+</li>
+
+
+      <li>
+        <img src="NPTEl.png" alt="NPTEL" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+        📜 Elite NPTEL ML Certificate (Top 10%)
+        <BR><BR>
+      </li>
+      <li>
+        <img src="Leetcode.png" alt="LeetCode" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+        💻 Solved 400+ LeetCode problems (250+ days streak)
+        <BR><BR>
+      </li>
+      <li>
+        <img src="AI_project.jpeg" alt="AI Projects" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
+        🎯 Consistent performer in AI & ML academic projects
+        <BR><BR>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="page card" style="display:none">
+    <h1><div class="section-title" style="text-align:center;">Contact</div></h1>
+    <br><br>
+    <div style="text-align:center; font-size:16px; line-height:2;">
+      📧 Email: kavibharathi11666@gmail.com<br/>
+      <br>
+      📱 Phone: +91 9080912404<br/>
+      <br>
+      🔗 LinkedIn: <a href="https://www.linkedin.com/in/kavibharathi-s-97ba88291" style="color:#7cc0ff">linkedin.com/in/kavibharathi-s</a><br/>
+      <br>
+      💻 GitHub: <a href="https://github.com/kavi11662" style="color:#7cc0ff">github.com/kavi11662</a><br/>
+      <br>
+      🧩 Leetcode: <a href="https://leetcode.com/u/Kavibharathi-s/" style="color:#7cc0ff">leetcode.com/u/Kavibharathi-s/</a>
+      <br>
+    </div>
+  </section>
+
+  <footer>© 2025 Kavibharathi S — Multi-Page Portfolio</footer>
+</div>
+
+<script>
+  // Navigation switching
+  const navlinks=document.querySelectorAll('.navlink');
+  const pages=document.querySelectorAll('.page');
+  navlinks.forEach(link=>{
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      navlinks.forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+      const id=link.getAttribute('href').substring(1);
+      pages.forEach(p=>p.style.display='none');
+      document.getElementById(id).style.display='block';
+    });
+  });
+
+  // Profile photo update
+  const photo=document.getElementById('photo');
+  photo.onclick=()=>{
+    const url=prompt("Enter image URL:");
+    if(url){photo.style.background=`url(${url}) center/cover`;photo.textContent='';}
+    else{photo.textContent='K';photo.style.background='#7cc0ff';}
+  }
+</script>
+</body>
+</html>
