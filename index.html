@@ -14,7 +14,7 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
         }
 
         :root {
@@ -36,52 +36,62 @@
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
+            scrollbar-width: none;
         }
 
-        /* SIDEBAR */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
         .sidebar {
             width: 250px;
             background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
+            scrollbar-width: none;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            display: none;
         }
 
         .sidebar-profile {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .profile-ring {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
             border: 2px solid var(--accent-cyan);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(135deg, rgba(0, 200, 240, 0.1), rgba(124, 58, 237, 0.1));
             color: var(--accent-cyan);
         }
 
         .profile-name {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .profile-role {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--accent-cyan);
             letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
         }
 
         .available-badge {
@@ -91,10 +101,10 @@
             background: rgba(0, 200, 240, 0.1);
             border: 1px solid rgba(0, 200, 240, 0.3);
             color: var(--accent-cyan);
-            font-size: 0.7rem;
-            padding: 0.4rem 0.8rem;
+            font-size: 0.65rem;
+            padding: 0.3rem 0.6rem;
             border-radius: 20px;
-            margin-top: 0.8rem;
+            margin-top: 0.4rem;
         }
 
         .dot {
@@ -110,34 +120,11 @@
             50% { opacity: 0.5; }
         }
 
-        .resume-btn {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            border: none;
-            color: white;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.85rem;
-            margin-top: 1.5rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-        }
-
-        .resume-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 200, 240, 0.3);
-        }
-
         .stats {
             display: flex;
             justify-content: space-around;
-            margin: 1.5rem 0;
-            padding: 1.5rem 0;
+            margin: 1rem 0;
+            padding: 1rem 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
@@ -147,36 +134,36 @@
         }
 
         .stat-number {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--accent-cyan);
             display: block;
         }
 
         .stat-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
         }
 
         .sidebar-nav {
             flex: 1;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .nav-item {
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            padding: 0.8rem 1rem;
+            padding: 0.6rem 0.8rem;
             color: var(--text-muted);
             text-decoration: none;
             border-radius: 6px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             transition: all 0.3s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .nav-item:hover,
@@ -194,22 +181,23 @@
 
         .sidebar-footer {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             margin-top: auto;
-            padding-top: 1.5rem;
+            padding-top: 1rem;
             border-top: 1px solid var(--border);
+            flex-wrap: wrap;
         }
 
         .social-link {
             flex: 1;
-            padding: 0.6rem;
+            padding: 0.5rem;
             background: rgba(0, 200, 240, 0.05);
             border: 1px solid var(--border);
             color: var(--text-muted);
             text-decoration: none;
             border-radius: 6px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             transition: all 0.3s;
         }
 
@@ -224,6 +212,11 @@
             flex: 1;
             margin-left: 250px;
             overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .main::-webkit-scrollbar {
+            display: none;
         }
 
         section {
@@ -708,15 +701,31 @@
         /* FOOTER */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 5%;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
             font-size: 0.85rem;
             margin-left: 250px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            padding: 0;
+        }
+
+        footer p:first-child {
+            margin-bottom: 0.3rem;
+        }
+
+        footer p:last-child {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
         }
 
         /* RESPONSIVE */
@@ -732,29 +741,7 @@
 
             footer {
                 margin-left: 200px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .sidebar {
-                width: 200px;
-                padding: 1.5rem 1rem;
-            }
-
-            .main {
-                margin-left: 200px;
-            }
-
-            footer {
-                margin-left: 200px;
+                padding: 2rem 3%;
             }
 
             .hero-title {
@@ -825,13 +812,9 @@
             </div>
         </div>
 
-        <button class="resume-btn" onclick="downloadResumePDF()">
-            <i class="fas fa-download"></i> Download Resume
-        </button>
-
         <div class="stats">
             <div class="stat-item">
-                <span class="stat-number">5+</span>
+                <span class="stat-number">3</span>
                 <span class="stat-label">Projects</span>
             </div>
             <div class="stat-item">
@@ -873,6 +856,9 @@
             </a>
             <a href="https://www.linkedin.com/in/kavibharathi-s-97ba88291/" target="_blank" class="social-link" title="LinkedIn">
                 <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://leetcode.com/u/Kavibharathi-s/" target="_blank" class="social-link" title="LeetCode">
+                <i class="fas fa-code"></i> LeetCode
             </a>
         </div>
     </aside>
