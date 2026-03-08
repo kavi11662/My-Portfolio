@@ -1,215 +1,932 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Kavibharathi S - Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kavibharathi S — AI & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-  body{font-family:Inter,Arial,sans-serif;margin:0;background:#0f1720;color:#e6eef6}
-  nav{background:#0b76ef;display:flex;gap:20px;padding:14px 24px;font-weight:600}
-  nav a{color:#fff;text-decoration:none}
-  nav a.active{text-decoration:underline}
-  .wrap{max-width:1000px;margin:auto;padding:28px}
-  .card{background:rgba(255,255,255,0.05);border-radius:12px;padding:20px;margin-bottom:20px}
-  .avatar{width:120px;height:120px;border-radius:12px;background:#7cc0ff;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:bold;margin-bottom:12px;cursor:pointer}
-  h1{margin:0;font-size:28px}
-  h2{margin:0;font-size:18px;color:#7cc0ff}
-  .bio{margin-top:8px;color:#9aa7b2}
-  .section-title{font-weight:700;margin-bottom:10px;color:#0b76ef}
-  .projects img{width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin:6px 0}
-  .skills span{background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:999px;margin:4px;display:inline-block}
-  .meta{color:#9aa7b2;font-size:13px}
-  footer{text-align:center;margin-top:20px;font-size:13px;color:#9aa7b2}
-  .editable{outline:none}
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1320;
+    --bg3: #111827;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --border: rgba(255,255,255,0.07);
+    --card: rgba(255,255,255,0.03);
+    --glow: 0 0 40px rgba(0,212,255,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(8,12,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .orb1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,212,255,0.12), transparent 70%);
+    top: -100px; right: -100px;
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(124,58,237,0.1), transparent 70%);
+    bottom: -50px; left: -100px;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero-name span {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-role {
+    font-size: 1.2rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s 0.3s ease both;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,212,255,0.3);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 320px;
+    height: 380px;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), transparent);
+    z-index: 0;
+  }
+
+  .photo-inner {
+    position: absolute;
+    inset: 2px;
+    border-radius: 18px;
+    background: var(--bg3);
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-real {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .photo-initials {
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .photo-name-small {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .stat-badges {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .badge {
+    background: rgba(13,19,32,0.95);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.7rem 1.1rem;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+  }
+
+  .badge-tl {
+    top: -20px; left: -40px;
+    animation: floatBadge 6s ease-in-out infinite;
+  }
+  .badge-br {
+    bottom: -20px; right: -40px;
+    animation: floatBadge 6s ease-in-out infinite reverse;
+  }
+
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .badge-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .badge-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  section {
+    padding: 6rem 5%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .section-title span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #skills { background: var(--bg2); }
+
+  .skills-wrapper { max-width: 1000px; margin: 0 auto; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem 1rem;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(0,212,255,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,212,255,0.1);
+  }
+
+  .skill-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
+  .skill-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+
+  #projects { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    border-color: rgba(0,212,255,0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+  }
+
+  .project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1a2744 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.4;
+  }
+
+  .project-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.7rem;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+    color: var(--accent3);
+    border-radius: 100px;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.87rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  #achievements { background: var(--bg2); }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .achievement-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .achievement-card:hover {
+    border-color: rgba(124,58,237,0.4);
+    transform: translateY(-3px);
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124,58,237,0.1);
+    border-radius: 12px;
+  }
+
+  .achievement-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .achievement-detail { font-size: 0.82rem; color: var(--muted); }
+
+  #contact { background: var(--bg); }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-desc {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,212,255,0.15);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 5%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer strong { color: var(--accent); font-family: 'Syne', sans-serif; }
+
+  .line-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin: 1rem auto 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { order: -1; }
+    .photo-frame { width: 220px; height: 260px; }
+    .photo-initials { font-size: 3.5rem; }
+    .badge-tl { top: -15px; left: -20px; }
+    .badge-br { bottom: -15px; right: -20px; }
+    .nav-links { display: none; }
+    .hero-ctas { flex-wrap: wrap; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <nav>
-  <a href="#home" class="navlink active">Home</a>
-  <a href="#projects" class="navlink">Projects</a>
-  <a href="#achievements" class="navlink">Achievements</a>
-  <a href="#contact" class="navlink">Contact</a>
+  <div class="nav-logo">KS</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:kavibharathi11666@gmail.com" class="btn-primary" style="padding:0.6rem 1.3rem;font-size:0.82rem;">Hire Me</a>
 </nav>
 
-<div class="wrap">
-
-  <!-- Home -->
-  <section id="home" class="page card">
-    <div class="avatar" id="photo">
-      <img src="myphoto.jpeg" alt="Profile Photo" style="width:100%;height:100%;border-radius:12px;object-fit:cover;">
+<section id="home">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-tag">Available for opportunities</div>
+      <h1 class="hero-name">Kavibharathi<br><span>S</span></h1>
+      <p class="hero-role">Aspiring AI &amp; ML Engineer</p>
+      <p class="hero-desc">
+        Focused on Data Structures, Data Analytics, and IoT — complemented by
+        hands-on experience building real-world AI &amp; ML solutions. Passionate
+        about developing efficient, impactful systems.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects ↓</a>
+        <a href="mailto:kavibharathi11666@gmail.com" class="btn-outline">Get in Touch</a>
+      </div>
     </div>
-
-    <div><h1>Kavibharathi S</h1></div>
-    <br>
-    <div><h2>Aspiring AI & ML Engineer</h2></div>
-    
-    <div class="bio">
-      Focused on Data Structures, Data Analytics, and IoT, complemented by practical experience in AI & ML. 
-      Dedicated to developing efficient and impactful solutions.
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <div class="photo-inner">
+          <img src="myphoto.jpeg" alt="Kavibharathi S" class="photo-real" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="photo-placeholder" style="display:none;">
+            <span class="photo-initials">KS</span>
+            <span class="photo-name-small">AI &amp; ML Engineer</span>
+          </div>
+        </div>
+        <div class="stat-badges badge badge-tl">
+          <div class="badge-val">400+</div>
+          <div class="badge-label">LeetCode Solved</div>
+        </div>
+        <div class="stat-badges badge badge-br">
+          <div class="badge-val">6+</div>
+          <div class="badge-label">AI Projects</div>
+        </div>
+      </div>
     </div>
-    <br>
-
-    <div class="section-title">Skills</div>
-    
-    <div class="skills">
-      <span>Python</span><span>Java</span><span>C++</span><span>React.js</span>
-      <span>SQL</span><span>Machine Learning</span><span>IoT</span><span>Spring Boot</span>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="page card" style="display:none">
-    <h1><div class="section-title" style="text-align:center;">Projects</div></h1>
-
-    <div style="text-align:center;">
-      <strong>Wearable Navigation Aid with Emergency Alerts</strong>
-      <div class="meta">Arduino, Ultrasonic Sensors, GSM Module</div>
-      <p>Developed a wearable assistive device for visually impaired users that provides real-time obstacle detection and navigation support. 
-         Integrated ultrasonic sensors for distance measurement, vibration motors for haptic feedback, and a GSM module to trigger SOS alerts in emergencies, 
-         enhancing safety and independence for the users.</p>
-      <img src="Wearable_Navigation.jpeg" alt="Wearable Aid" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-      <br><br><br>
-    </div>
-    <div style="text-align:center;">
-  <strong>Human Detection System using YOLOv8n</strong>
-  <div class="meta">Python, OpenCV, IoT, Streamlit</div>
-  <p>Developed a smart surveillance system capable of detecting human presence and unusual movements in real time. 
-     Integrated IoT for remote monitoring and used Streamlit to build an interactive web interface for live video streaming and alerts. 
-     The system supports motion detection, human identification, and automated notifications, enhancing security and user accessibility.</p>
-  <img src="AI_project.jpeg" alt="Smart Home Surveillance" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-  <br><br><br>
-</div>
-
-
-    <div style="text-align:center;">
-      <strong>Road Detection Using YOLO</strong>
-      <div class="meta">Python, OpenCV, YOLOv8</div>
-      <p>Developed a real-time road and lane boundary detection system using the YOLOv8 model. 
-         The project was optimized for autonomous navigation, enabling accurate segmentation of road surfaces 
-         and improving safety in self-driving and mapping applications.</p>
-      <img src="Road_Detection.jpeg" alt="Road Detection" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-      <br><br><br>
-    </div>
-
-    <div style="text-align:center;">
-      <strong>Gesture-Controlled Virtual Mouse</strong>
-      <div class="meta">Python, OpenCV, MediaPipe</div>
-      <p>Designed and implemented a virtual mouse system using Python, OpenCV, and MediaPipe that replaces traditional hardware with hand gesture recognition. 
-         Enabled users to perform cursor movements, clicks, and scrolling in real-time, providing an accessible solution for individuals with mobility challenges.</p>
-      <img src="VirtualMouse.jpg" alt="Virtual Mouse" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-      <br><br><br>
-    </div>
-
-    <div style="text-align:center;">
-      <strong>Speech to ISL Translator</strong>
-      <div class="meta">Python, NLP, Google Speech Recognition, Google Translate API</div>
-      <p>Developed an AI-powered translator that converts spoken language into Indian Sign Language (ISL) gestures, 
-         improving communication accessibility for hearing-impaired individuals. 
-         Integrated natural language processing and speech recognition to achieve accurate real-time translation.</p>
-      <img src="ISL.jpeg" alt="ISL Translator" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-      <br><br><br>
-    </div>
-
-    
-
-    <div style="text-align:center;">
-      <strong>Fast Line Follower Bot</strong>
-      <div class="meta">Arduino Nano, IR Sensors, Embedded C</div>
-      <p>Designed and built an autonomous line follower robot capable of high-speed navigation using IR sensors for real-time path detection. 
-         Programmed with Embedded C on Arduino Nano, the bot ensures precise tracking, quick response to path variations, 
-         and serves as a foundation for robotics and automation applications.</p>
-      <img src="Line_Follower.jpeg" alt="Line Follower" style="display:block;margin:0 auto;max-width:90%;border-radius:8px;">
-      <br><br><br>
-    </div>
-  </section>
-
-
-  <!-- Achievements -->
-<section id="achievements" class="page card" style="display:none">
-  <h1><div class="section-title" style="text-align:center;">Achievements</div></h1>
-
-  <div style="text-align:center;">
-    <ul style="list-style-type:none; padding:0; font-size:16px; line-height:2;">
-      <li>
-        <img src="Expo.jpeg" alt="Project Expo" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-        🏆 1st Place — Project Expo (Engineering Day at SKCT Coimbatore)
-        <BR><BR>
-      </li>
-      <li>
-        <img src="Bag_IT.jpeg" alt="Hackathon" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-        💡 Finalist — Bag-It Challenge Hackathon(TNPCB Chennai)
-        <BR><BR>
-      </li>
-      <li>
-  <img src="mcet.jpeg" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-  🚀 Shortlisted and Finalist — EXPO conducted by Agastya International Foundation.
-  <br><br>
-</li>
-
-
-      <li>
-        <img src="NPTEl.png" alt="NPTEL" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-        📜 Elite NPTEL ML Certificate (Top 10%)
-        <BR><BR>
-      </li>
-      <li>
-        <img src="Leetcode.png" alt="LeetCode" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-        💻 Solved 400+ LeetCode problems (250+ days streak)
-        <BR><BR>
-      </li>
-      <li>
-        <img src="AI_project.jpeg" alt="AI Projects" style="width:40px;height:40px;vertical-align:middle;margin-right:10px;border-radius:8px;">
-        🎯 Consistent performer in AI & ML academic projects
-        <BR><BR>
-      </li>
-    </ul>
   </div>
 </section>
 
-
-  <!-- Contact -->
-  <section id="contact" class="page card" style="display:none">
-    <h1><div class="section-title" style="text-align:center;">Contact</div></h1>
-    <br><br>
-    <div style="text-align:center; font-size:16px; line-height:2;">
-      📧 Email: kavibharathi11666@gmail.com<br/>
-      <br>
-      📱 Phone: +91 9080912404<br/>
-      <br>
-      🔗 LinkedIn: <a href="https://www.linkedin.com/in/kavibharathi-s-97ba88291" style="color:#7cc0ff">linkedin.com/in/kavibharathi-s</a><br/>
-      <br>
-      💻 GitHub: <a href="https://github.com/kavi11662" style="color:#7cc0ff">github.com/kavi11662</a><br/>
-      <br>
-      🧩 Leetcode: <a href="https://leetcode.com/u/Kavibharathi-s/" style="color:#7cc0ff">leetcode.com/u/Kavibharathi-s/</a>
-      <br>
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-tag">What I work with</span>
+    <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
+    <div class="line-divider"></div>
+  </div>
+  <div class="skills-wrapper">
+    <div class="skills-grid">
+      <div class="skill-card reveal"><span class="skill-icon">🐍</span><span class="skill-name">Python</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">☕</span><span class="skill-name">Java</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">⚙️</span><span class="skill-name">C++</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">⚛️</span><span class="skill-name">React.js</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">🍃</span><span class="skill-name">Spring Boot</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">🗄️</span><span class="skill-name">SQL</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">🤖</span><span class="skill-name">Machine Learning</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">👁️</span><span class="skill-name">Computer Vision</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">📡</span><span class="skill-name">IoT</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">🔷</span><span class="skill-name">OpenCV</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">⚡</span><span class="skill-name">YOLOv8</span></div>
+      <div class="skill-card reveal"><span class="skill-icon">🖥️</span><span class="skill-name">Streamlit</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>© 2025 Kavibharathi S — Multi-Page Portfolio</footer>
-</div>
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-tag">What I've built</span>
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+    <div class="line-divider"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <img src="Wearable_Navigation.jpeg" alt="Wearable Navigation Aid" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🦺</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">Arduino</span>
+          <span class="project-tag">GSM Module</span>
+          <span class="project-tag">IoT</span>
+        </div>
+        <h3 class="project-title">Wearable Navigation Aid with Emergency Alerts</h3>
+        <p class="project-desc">A wearable assistive device for visually impaired users providing real-time obstacle detection via ultrasonic sensors, haptic feedback, and GSM-powered SOS emergency alerts.</p>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="AI_project.jpeg" alt="Human Detection System" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🎥</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">YOLOv8</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Streamlit</span>
+        </div>
+        <h3 class="project-title">Human Detection System using YOLOv8n</h3>
+        <p class="project-desc">Smart surveillance system detecting human presence and unusual movements in real time. Features IoT remote monitoring, live streaming interface, and automated alert notifications.</p>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="Road_Detection.jpeg" alt="Road Detection" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🛣️</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">YOLOv8</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <h3 class="project-title">Road Detection Using YOLO</h3>
+        <p class="project-desc">Real-time road and lane boundary detection system optimized for autonomous navigation. Enables accurate road surface segmentation for self-driving and mapping applications.</p>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="VirtualMouse.jpg" alt="Gesture Virtual Mouse" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🖐️</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">MediaPipe</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <h3 class="project-title">Gesture-Controlled Virtual Mouse</h3>
+        <p class="project-desc">Replaces traditional hardware with hand gesture recognition. Enables cursor movements, clicks, and scrolling in real time — an accessible solution for mobility-challenged users.</p>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="ISL.jpeg" alt="Speech to ISL Translator" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🤟</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">NLP</span>
+          <span class="project-tag">Speech Recognition</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <h3 class="project-title">Speech to ISL Translator</h3>
+        <p class="project-desc">AI-powered translator converting spoken language into Indian Sign Language gestures. Integrates NLP and speech recognition for accurate real-time translation for hearing-impaired users.</p>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="Line_Follower.jpeg" alt="Line Follower Bot" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="project-img-placeholder" style="display:none;">🤖</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">Arduino Nano</span>
+          <span class="project-tag">IR Sensors</span>
+          <span class="project-tag">Embedded C</span>
+        </div>
+        <h3 class="project-title">Fast Line Follower Bot</h3>
+        <p class="project-desc">Autonomous line follower robot capable of high-speed navigation using IR sensors for real-time path detection. Programmed with Embedded C for precise tracking and quick response.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="section-header reveal">
+    <span class="section-tag">Recognition &amp; Milestones</span>
+    <h2 class="section-title">Achievements &amp; <span>Awards</span></h2>
+    <div class="line-divider"></div>
+  </div>
+  <div class="achievements-grid">
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><img src="Expo.jpeg" alt="Project Expo" style="width:52px;height:52px;object-fit:cover;border-radius:10px;"></div>
+      <div>
+        <div class="achievement-title">1st Place — Project Expo</div>
+        <div class="achievement-detail">Engineering Day at SKCT Coimbatore</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><img src="Bag_IT.jpeg" alt="Bag-It Hackathon" style="width:52px;height:52px;object-fit:cover;border-radius:10px;"></div>
+      <div>
+        <div class="achievement-title">Finalist — Bag-It Challenge Hackathon</div>
+        <div class="achievement-detail">TNPCB Chennai</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><img src="mcet.jpeg" alt="Agastya EXPO" style="width:52px;height:52px;object-fit:cover;border-radius:10px;"></div>
+      <div>
+        <div class="achievement-title">Shortlisted Finalist — Agastya EXPO</div>
+        <div class="achievement-detail">Agastya International Foundation</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><img src="NPTEl.png" alt="NPTEL" style="width:36px;height:36px;object-fit:contain;border-radius:6px;"></div>
+      <div>
+        <div class="achievement-title">Elite NPTEL ML Certificate</div>
+        <div class="achievement-detail">Top 10% nationwide ranking</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><img src="Leetcode.png" alt="LeetCode" style="width:36px;height:36px;object-fit:contain;border-radius:6px;"></div>
+      <div>
+        <div class="achievement-title">400+ LeetCode Problems Solved</div>
+        <div class="achievement-detail">250+ day streak — consistent problem solver</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon">🎯</div>
+      <div>
+        <div class="achievement-title">Consistent AI &amp; ML Performer</div>
+        <div class="achievement-detail">Top performer across academic AI/ML projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Let's connect</span>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <div class="line-divider"></div>
+    </div>
+    <p class="contact-desc reveal">
+      I'm open to full-time roles, internships, and exciting AI/ML collaborations.
+      Whether you have a project in mind or just want to connect — my inbox is always open.
+    </p>
+    <div class="contact-links reveal">
+      <a href="mailto:kavibharathi11666@gmail.com" class="contact-link">
+        <span>📧</span> kavibharathi11666@gmail.com
+      </a>
+      <a href="https://github.com/kavi11662" target="_blank" class="contact-link">
+        <span>🐙</span> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; Built by <strong>Kavibharathi S</strong> &mdash; 2025</p>
+  <p style="margin-top:0.4rem; font-size:0.75rem; opacity:0.5;">AI &amp; ML Engineer · Coimbatore, Tamil Nadu</p>
+</footer>
 
 <script>
-  // Navigation switching
-  const navlinks=document.querySelectorAll('.navlink');
-  const pages=document.querySelectorAll('.page');
-  navlinks.forEach(link=>{
-    link.addEventListener('click',e=>{
-      e.preventDefault();
-      navlinks.forEach(l=>l.classList.remove('active'));
-      link.classList.add('active');
-      const id=link.getAttribute('href').substring(1);
-      pages.forEach(p=>p.style.display='none');
-      document.getElementById(id).style.display='block';
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
     });
   });
-
-  // Profile photo update
-  const photo=document.getElementById('photo');
-  photo.onclick=()=>{
-    const url=prompt("Enter image URL:");
-    if(url){photo.style.background=`url(${url}) center/cover`;photo.textContent='';}
-    else{photo.textContent='K';photo.style.background='#7cc0ff';}
-  }
 </script>
 </body>
 </html>
