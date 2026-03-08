@@ -234,19 +234,21 @@
   }
 
   .hero-name {
-    font-family: var(--display);
-    font-size: clamp(2.6rem, 5.5vw, 5.2rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     margin-bottom: 0.8rem;
     animation: fadeUp 0.9s 0.1s ease both;
   }
   .hero-name span {
+    font-family: 'Times New Roman', Times, Georgia, serif;
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-style: italic;
   }
 
   .hero-role {
@@ -599,7 +601,7 @@
     .badge-label { font-size: 0.6rem; }
 
     .hero-tag { font-size: 0.7rem; justify-content: center; }
-    .hero-name { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-name { font-size: clamp(1.5rem, 6vw, 2rem); }  
     .hero-role { font-size: 1rem; }
     .hero-desc { font-size: 0.95rem; max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-ctas { justify-content: center; }
@@ -628,7 +630,7 @@
   /* SMALL MOBILE */
   @media (max-width: 400px) {
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-name { font-size: 2rem; }
+    .hero-name { font-size: 1.5rem; }
     .photo-frame { width: 180px; height: 220px; }
     .badge-tl, .badge-br { display: none; }
     .btn-primary, .btn-outline { width: 100%; justify-content: center; }
