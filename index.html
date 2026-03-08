@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kavibharathi S - AI/ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -314,6 +315,47 @@
             line-height: 1.7;
         }
 
+        /* Education Timeline */
+        .edu-timeline {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .edu-item {
+            background: rgba(74, 144, 226, 0.03);
+            padding: 2rem;
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .edu-item:hover {
+            border-left-color: var(--accent-primary);
+            background: rgba(74, 144, 226, 0.08);
+        }
+
+        .edu-year {
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-school {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .edu-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -370,6 +412,15 @@
         }
 
         /* Projects Section */
+        .projects-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -650,6 +701,10 @@
                 max-width: 280px;
             }
 
+            .projects-header {
+                flex-direction: column;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -703,13 +758,13 @@
                 <p class="hero-desc">Specializing in computer vision, backend development, and machine learning. Delivering intelligent solutions for real-world challenges through data-driven methodologies and robust software architecture.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#certificates" class="btn btn-secondary">View Achievements</a>
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/kavi11662" target="_blank" class="social-icon" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/Kavibharathi-s" target="_blank" class="social-icon" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/kavibharathi-s-97ba88291/" target="_blank" class="social-icon" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:kavibharathi11666@gmail.com" class="social-icon" title="Email">
@@ -728,7 +783,7 @@
             </div>
             <h2 class="resume-title">Professional Resume</h2>
             <p class="resume-subtitle">Download comprehensive CV and qualifications</p>
-            <button onclick="downloadResume()" class="btn btn-primary">Download Resume</button>
+            <button onclick="downloadResumePDF()" class="btn btn-primary">Download Resume (PDF)</button>
         </div>
     </section>
 
@@ -760,19 +815,31 @@
                     <p>Postulate Info Tech (Feb 2024 - 2025). Developed ML models using Python, TensorFlow, OpenCV. Data preprocessing, feature engineering, neural network optimization.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Education Timeline</h3>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <h3 style="color: var(--accent-primary); font-size: 0.9rem; text-transform: uppercase;">B.E AI & ML Engineering</h3>
-                        <h4 style="color: var(--text-primary); font-size: 1rem;">Sri Krishna College of Technology</h4>
-                        <p style="color: var(--accent-primary); font-weight: 600; margin-top: 1rem;">CGPA 8.26 | 2023 - 2027</p>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic background and qualifications</p>
+
+            <div class="edu-timeline">
+                <div class="edu-item">
+                    <div class="edu-year">2023 - 2027</div>
+                    <div class="edu-school">Bachelor of Engineering (CSE - AIML)</div>
+                    <div class="edu-details">
+                        <strong>Sri Krishna College of Technology, Coimbatore</strong><br>
+                        CGPA: 8.26 (5th Semester) | Focus: AI, Machine Learning, Data Structures
                     </div>
-                    <div class="about-card">
-                        <h3 style="color: var(--accent-primary); font-size: 0.9rem; text-transform: uppercase;">HSC</h3>
-                        <h4 style="color: var(--text-primary); font-size: 1rem;">Malar Matric Higher Secondary School</h4>
-                        <p style="color: var(--accent-primary); font-weight: 600; margin-top: 1rem;">91% | 2022 - 2023</p>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-year">2022 - 2023</div>
+                    <div class="edu-school">HSC (Higher Secondary Certificate)</div>
+                    <div class="edu-details">
+                        <strong>Malar Matric Higher Secondary School, Namakkal</strong><br>
+                        Percentage: 91% | Science Stream
                     </div>
                 </div>
             </div>
@@ -866,6 +933,10 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">Featured professional work demonstrating technical expertise</p>
+
+            <div class="projects-header">
+                <a href="#certificates" class="btn btn-secondary">View All Achievements</a>
+            </div>
 
             <div class="projects-grid">
                 <div class="project-card">
@@ -1032,99 +1103,66 @@
             });
         });
 
-        // Download Resume
-        function downloadResume() {
-            const resumeContent = `KAVIBHARATHI S
-AI & ML Engineer | Data Science Professional
-Coimbatore, Tamil Nadu, India
+        // Download Resume as PDF
+        function downloadResumePDF() {
+            const element = document.createElement('div');
+            element.innerHTML = `
+                <div style="font-family: 'Times New Roman', serif; padding: 20px; color: #000; background: white;">
+                    <h1 style="text-align: center; font-size: 28px; margin-bottom: 5px;">KAVIBHARATHI S</h1>
+                    <p style="text-align: center; font-size: 12px; margin-bottom: 20px;">
+                        Email: kavibharathi11666@gmail.com | Phone: +91 9080912404<br>
+                        LinkedIn: linkedin.com/in/Kavibharathi-S | GitHub: github.com/kavi11662
+                    </p>
+                    
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">PROFESSIONAL SUMMARY</h2>
+                    <p style="font-size: 11px; line-height: 1.6;">AI & ML engineer with strong expertise in computer vision, backend development, and data science. Demonstrated capability in designing and implementing enterprise-grade solutions. Proficient in Java ecosystem, machine learning frameworks, and large-scale data processing.</p>
 
-CONTACT INFORMATION
-Email: kavibharathi11666@gmail.com
-Phone: +91 9080912404
-LinkedIn: linkedin.com/in/Kavibharathi-s
-GitHub: github.com/kavi11662
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">EDUCATION</h2>
+                    <p style="font-size: 11px; margin-bottom: 5px;"><strong>B.E. Computer Science & Engineering (AI & ML Specialization)</strong><br>Sri Krishna College of Technology, Coimbatore | CGPA: 8.26 (5th Semester) | 2023 - 2027</p>
+                    <p style="font-size: 11px;"><strong>HSC (Higher Secondary Certificate)</strong><br>Malar Matric Higher Secondary School, Namakkal | Percentage: 91% | 2022 - 2023</p>
 
-═══════════════════════════════════════════════════════════
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">CORE COMPETENCIES</h2>
+                    <p style="font-size: 11px; line-height: 1.6;">
+                        <strong>Programming Languages:</strong> Java (Advanced) | C++ (Proficient) | Python (Intermediate) | SQL (Proficient)<br>
+                        <strong>Backend & Databases:</strong> JDBC | Java Servlet | OpenCV | Git | MySQL<br>
+                        <strong>Development Tools:</strong> VS Code | MySQL Workbench | Eclipse IDE | Google Colab
+                    </p>
 
-PROFESSIONAL SUMMARY
-AI & ML engineer with strong expertise in computer vision, backend development, and data science. Demonstrated capability in designing and implementing enterprise-grade solutions. Proficient in Java ecosystem, machine learning frameworks, and large-scale data processing.
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">PROFESSIONAL EXPERIENCE</h2>
+                    <p style="font-size: 11px; margin-bottom: 5px;"><strong>Data Science Intern</strong><br>Postulate Info Tech Pvt Ltd, Coimbatore | February 2024 - 2025</p>
+                    <p style="font-size: 11px; line-height: 1.6;">
+                        • Developed image recognition models using Python, TensorFlow, OpenCV<br>
+                        • Performed data preprocessing and feature engineering<br>
+                        • Implemented neural network optimization techniques<br>
+                        • Improved prediction accuracy through advanced ML methodologies
+                    </p>
 
-═══════════════════════════════════════════════════════════
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">PROJECTS</h2>
+                    <p style="font-size: 11px; margin-bottom: 3px;"><strong>1. Human Detection System using YOLOv8n</strong><br>Real-time human detection with live camera integration for security applications.</p>
+                    <p style="font-size: 11px; margin-bottom: 3px;"><strong>2. Spring-core-LibraryManagement</strong><br>Enterprise library management system using Java Spring Core framework.</p>
+                    <p style="font-size: 11px; margin-bottom: 3px;"><strong>3. Customer-Churn-Analysis</strong><br>Comprehensive churn analysis with Power BI dashboards and predictive insights.</p>
 
-EDUCATION
-B.E. Computer Science & Engineering (AI & ML Specialization)
-Sri Krishna College of Technology, Coimbatore
-CGPA: 8.26 (5th Semester) | 2023 - 2027
+                    <h2 style="font-size: 16px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 15px;">ACHIEVEMENTS & CERTIFICATIONS</h2>
+                    <p style="font-size: 11px; line-height: 1.6;">
+                        • First Position - Project Expo (OpenCV Domain) - SKCT<br>
+                        • NPTEL: Data Structures & Algorithms using Java (57%)<br>
+                        • NPTEL: Machine Learning Fundamentals (61%)<br>
+                        • LeetCode: 650+ Problems Solved | 450+ Day Streak<br>
+                        • Bag-It Challenge Hackathon: Finalist (Top 10) - TNPCB Chennai<br>
+                        • IBM Datathon: Finalist (Top 50) - IBM Bangalore
+                    </p>
+                </div>
+            `;
 
-HSC (Higher Secondary Certificate)
-Malar Matric Higher Secondary School, Namakkal
-Percentage: 91% | 2022 - 2023
+            const opt = {
+                margin: 10,
+                filename: 'Kavibharathi_S_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
 
-═══════════════════════════════════════════════════════════
-
-CORE COMPETENCIES
-
-Programming Languages:
-Java (Advanced) | C++ (Proficient) | Python (Intermediate) | SQL (Proficient)
-
-Backend & Databases:
-JDBC | Java Servlet | OpenCV | Git | MySQL
-
-Development Tools:
-VS Code | MySQL Workbench | Eclipse IDE | Google Colab
-
-═══════════════════════════════════════════════════════════
-
-PROFESSIONAL EXPERIENCE
-
-Data Science Intern
-Postulate Info Tech Pvt Ltd, Coimbatore
-February 2024 - 2025
-
-• Developed image recognition models using Python, TensorFlow, OpenCV
-• Performed data preprocessing and feature engineering
-• Implemented neural network optimization techniques
-• Improved prediction accuracy through advanced ML methodologies
-
-═══════════════════════════════════════════════════════════
-
-PROJECTS
-
-1. Human Detection System using YOLOv8n
-   Computer Vision | 2024
-   GitHub: https://github.com/kavi11662/Human-Detection-using-YOLOv8n
-   Real-time human detection with live camera integration for security applications
-
-2. Spring-core-LibraryManagement
-   Backend Development | 2025
-   GitHub: https://github.com/kavi11662/Spring-core-LibraryManagement
-   Enterprise library management system using Java Spring Core framework
-
-3. Customer-Churn-Analysis
-   Data Science | 2025
-   GitHub: https://github.com/kavi11662/Customer-Churn-Analysis
-   Comprehensive churn analysis with Power BI dashboards and predictive insights
-
-═══════════════════════════════════════════════════════════
-
-ACHIEVEMENTS & CERTIFICATIONS
-
-• First Position - Project Expo (OpenCV Domain) - SKCT
-• NPTEL: Data Structures & Algorithms using Java (57%)
-• NPTEL: Machine Learning Fundamentals (61%)
-• LeetCode: 650+ Problems Solved | 450+ Day Streak
-• Bag-It Challenge Hackathon: Finalist (Top 10) - TNPCB Chennai
-• IBM Datathon: Finalist (Top 50) - IBM Bangalore
-
-═══════════════════════════════════════════════════════════`;
-
-            const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeContent));
-            element.setAttribute('download', 'Kavibharathi_S_Resume.txt');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
+            html2pdf().set(opt).from(element).save();
         }
 
         // Contact Form Handler
