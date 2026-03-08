@@ -639,9 +639,9 @@
 
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-row.full {
@@ -655,15 +655,16 @@
 
         .form-label {
             font-weight: 600;
-            margin-bottom: 0.6rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text);
         }
 
         .form-input,
         .form-textarea,
         .form-select {
-            padding: 0.8rem;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            background: rgba(0, 200, 240, 0.03);
             border: 1px solid var(--border);
             border-radius: 6px;
             color: var(--text);
@@ -682,11 +683,11 @@
 
         .form-textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         .form-btn {
-            padding: 1rem 2rem;
+            padding: 1.1rem 2rem;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             color: white;
             border: none;
@@ -696,6 +697,7 @@
             font-size: 0.95rem;
             transition: all 0.3s;
             width: 100%;
+            margin-top: 1rem;
         }
 
         .form-btn:hover {
@@ -1156,35 +1158,29 @@
         <section id="contact">
             <div class="container">
                 <h2 class="section-title">Contact</h2>
-                <p class="section-subtitle">Ready to collaborate on projects or discuss opportunities</p>
+                <p class="section-subtitle" style="margin-bottom: 3rem;">Ready to collaborate on projects or discuss opportunities</p>
                 <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-input" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-input" id="email" required>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="name" required>
                     </div>
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label class="form-label">Subject</label>
-                            <select class="form-select" id="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="Project Collaboration">Project Collaboration</option>
-                                <option value="Internship Opportunity">Internship Opportunity</option>
-                                <option value="Research Discussion">Research Discussion</option>
-                                <option value="General Inquiry">General Inquiry</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="email" required>
                     </div>
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-textarea" id="message" required></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <select class="form-select" id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="Project Collaboration">Project Collaboration</option>
+                            <option value="Internship Opportunity">Internship Opportunity</option>
+                            <option value="Research Discussion">Research Discussion</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-textarea" id="message" required></textarea>
                     </div>
                     <button type="submit" class="form-btn">
                         <i class="fas fa-paper-plane"></i> Send Message
